@@ -4,11 +4,11 @@ from django.core.validators import RegexValidator
 class Person(models.Model):
     """Имя и фамилия пользователя"""
     first_name = models.CharField(
-        "person's first name", 
+        validators=[RegexValidator(regex='^[^\W\d_]+(-[^\W\d_]+)?$', message='Text symbols and -, without digits')], 
         max_length=50
         )
     last_name = models.CharField(
-        "person's last name",
+        validators=[RegexValidator(regex='^[^\W\d_]+(-[^\W\d_]+)?$', message='Text symbols and -, without digits')],
         max_length=150, 
         unique=True
         )
