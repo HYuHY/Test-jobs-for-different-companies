@@ -1,0 +1,24 @@
+{% extends "uc_links/base.html" %}
+{% load bootstrap3 %}
+{% block content0 %}
+  <h2>Users and quantity of their cards</h2>
+  <br> 
+  <br>
+  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%" style="font-size: 14px !important; line-height: 20px !important;">
+    <tbody style="font-size: 14px !important; line-height: 20px !important;">
+      {% for user, number_of_card in uc_dict.items %}
+        <tr style="font-size: 14px !important; line-height: 20px !important;">
+          <td style="width: 75%; font-size: 14px !important; line-height: 20px !important; ">{{user}}</td>
+          <td style="width: 25%; font-size: 14px !important; text-align: center; line-height: 20px !important;">
+          {{ number_of_card }}</td>
+        </tr>
+      {% empty %}
+        <tr style="font-size: 14px !important; line-height: 20px !important;">
+          <td style="width: 75%; font-size: 14px !important; line-height: 20px !important;">No users have been added yet.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+
+  <p></p>
+{% endblock content0 %}
+

@@ -1,0 +1,45 @@
+{% extends "uc_links/base.html" %}
+{% load bootstrap3 %}
+{% block header %}
+  <div class='jumbotron'>
+    <h1>Track a few cards!</h1>
+  </div>
+{% endblock header %}
+
+{% block content0 %}
+  <h2>When you've known a new pin-code, don't forget register it!
+  </h2>
+  <h2>You get somebody's pin-code? Just register owner and number<br>
+  here and make connection below through drop-down lists. 
+  </h2>
+  <br> 
+  <br>  
+  <p><label class="control-label" for="id_last_name">User's personal data</label></p>
+  <form method="post" action="{% url 'uc_links:index' %}" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form.0 %}
+    {% buttons %}
+      <button type="submit" name="form0" class="btn btn-primary" value="Submit">Submit</button>
+    {% endbuttons %}
+  </form>
+  <br>
+  <br>
+  <p><label class="control-label" for="id_last_name">PIN-Card </label></p>
+  <form method="post" action="{% url 'uc_links:index' %}" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form.1 %}
+    {% buttons %}
+      <button type="submit" name="form1" class="btn btn-primary" value="Submit">Submit</button>
+    {% endbuttons %}
+  </form>
+  <br>
+  <br>
+  <p><label class="control-label" for="id_last_name">User-Card Connection</label></p>
+  <form method="post" action="{% url 'uc_links:index' %}" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form.2 %}
+    {% buttons %}
+      <button type="submit" name="form2" class="btn btn-primary" value="Submit">Submit</button>
+    {% endbuttons %}
+  </form>
+{% endblock content0 %}
